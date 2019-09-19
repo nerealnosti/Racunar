@@ -24,7 +24,7 @@ namespace Racunar
     public partial class MainWindow : Window
     {
         private double firstNum,secnum,infinity;
-        Operatori SelektovanOperater;
+        Operatori SelektovanOperater = Operatori.Ne_Selektovan;
         bool IsOcupied = true,check = true,afterjednako = false;
 
         public MainWindow()
@@ -40,7 +40,10 @@ namespace Racunar
                 SelektovanOperater = Operatori.Ne_Selektovan;
 
             }
+
             afterjednako = false;
+
+
             SetLabelFontSize(ResultLabel);
             check = true;
 
@@ -155,22 +158,24 @@ namespace Racunar
         private void Jednako_Click(object sender, RoutedEventArgs e)
         {
 
-            
-            if (check)
+            if (check && firstNum != 0)
             {
                 double.TryParse(ResultLabel.Content.ToString(), out secnum);
             }
-            
-                
+
+
             if ((SelektovanOperater == Operatori.Deljenje && secnum == 0))
             {
-                    OnemoguciDugmicePoslegreske();
-                    PocetneVrednostiZaOperatore();
-                    ResultLabel.Foreground = Brushes.Red;
-                    ResultLabel.FontSize = 5;
-                    ResultLabel.Content = "ERROR DEVIDE BY ZERO NOT DEFINED  ";
+                OnemoguciDugmicePoslegreske();
+                PocetneVrednostiZaOperatore();
+                ResultLabel.Foreground = Brushes.Red;
+                ResultLabel.FontSize = 5;
+                ResultLabel.Content = "ERROR DEVIDE BY ZERO NOT DEFINED  ";
             }
-                else if (SelektovanOperater != Operatori.Ne_Selektovan)
+            else if (SelektovanOperater == Operatori.Deljenje ||
+                SelektovanOperater == Operatori.Mnozenje||
+                SelektovanOperater == Operatori.oduzimanje||
+                SelektovanOperater == Operatori.Sabiranje)
                 {
 
                         switch (SelektovanOperater)
@@ -192,13 +197,17 @@ namespace Racunar
                                 ResultLabel.Content =
                                Operators.Mnozenje(firstNum, secnum);
                                 break;
+                            
                             default:
                                 break;
                         }
 
-                    SetLabelFontSize(ResultLabel);
-                    afterjednako = true;
-                }
+                    
+                 }
+
+            SetLabelFontSize(ResultLabel);
+            afterjednako = true;
+
             if (double.TryParse(ResultLabel.Content.ToString(), out infinity))
             {
                 if (double.IsPositiveInfinity(infinity) || double.IsNegativeInfinity(infinity))
