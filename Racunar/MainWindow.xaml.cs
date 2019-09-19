@@ -73,13 +73,14 @@ namespace Racunar
             if (sender == Devet) selectedItem = 9;
             if (sender == Nula) selectedItem = 0;
 
-            if (ResultLabel.Content.ToString() == "0" )
+            if (ResultLabel.Content.ToString() == "0")
             {
                 ResultLabel.Content = $"{selectedItem}";
             }
-            else
+            else if (ResultLabel.Content.ToString().Length<16)
             {
-                ResultLabel.Content = $"{ResultLabel.Content.ToString() + selectedItem}"; 
+                ResultLabel.Content = $"{ResultLabel.Content.ToString() + selectedItem}";
+                HundredSeparator();
             }
         }
 
@@ -181,7 +182,7 @@ namespace Racunar
                         switch (SelektovanOperater)
                         {
                             case Operatori.Sabiranje:
-                                ResultLabel.Content =
+                                ResultLabel.Content = 
                                Operators.Sabiranje(firstNum, secnum);
                                 break;
                             case Operatori.oduzimanje:
@@ -205,6 +206,7 @@ namespace Racunar
                     
                  }
 
+            
             SetLabelFontSize(ResultLabel);
             afterjednako = true;
 
@@ -309,6 +311,16 @@ namespace Racunar
                 }
             
             
+        }
+
+        public void HundredSeparator()
+        {
+            if (!ResultLabel.Content.ToString().Contains(","))
+            {
+                double result = Convert.ToDouble(ResultLabel.Content);
+                ResultLabel.Content = result.ToString("n0");
+                
+            }
         }
     }
 
