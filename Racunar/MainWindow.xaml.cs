@@ -53,8 +53,7 @@ namespace Racunar
             }
             if (ResultLabel.Foreground == Brushes.Red)
             {
-               
-                PocetneVrednostiZaOperatore();
+               PocetneVrednostiZaOperatore();
             }
             int selectedItem = 0;
             if (IsOcupied)
@@ -80,7 +79,7 @@ namespace Racunar
             else if (ResultLabel.Content.ToString().Length<16)
             {
                 ResultLabel.Content = $"{ResultLabel.Content.ToString() + selectedItem}";
-                HundredSeparator();
+                HundredSeparator(ResultLabel);
             }
         }
 
@@ -127,7 +126,8 @@ namespace Racunar
                  OperatorLabel.Content = "/";
                  SelektovanOperater = Operatori.Deljenje;
                  FirstNUmLabel.Content = firstNum.ToString();
-                     
+                 HundredSeparator(FirstNUmLabel);
+
              }
             if (sender == Puta)
             {
@@ -203,11 +203,11 @@ namespace Racunar
                                 break;
                         }
 
-                    
-                 }
+                SetLabelFontSize(ResultLabel);
+            }
 
-            
-            SetLabelFontSize(ResultLabel);
+           
+
             afterjednako = true;
 
             if (double.TryParse(ResultLabel.Content.ToString(), out infinity))
@@ -229,7 +229,8 @@ namespace Racunar
             }
 
             check = false;
-
+            HundredSeparator(ResultLabel);
+            
         }
 
 
@@ -313,14 +314,18 @@ namespace Racunar
             
         }
 
-        public void HundredSeparator()
+        public void HundredSeparator(Label label)
         {
-            if (!ResultLabel.Content.ToString().Contains(","))
+
+
+            if (!label.Content.ToString().Contains(",")&& !label.Content.ToString().Contains("ERROR"))
             {
-                double result = Convert.ToDouble(ResultLabel.Content);
-                ResultLabel.Content = result.ToString("n0");
-                
+                double result = Convert.ToDouble(label.Content);
+                label.Content = result.ToString("n0");
             }
+            
+                
+            
         }
     }
 
