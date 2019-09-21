@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +24,9 @@ namespace Racunar
     
     public partial class MainWindow : Window
     {
-        private double firstNum,secnum,infinity;
+        private double firstNum,secnum,infinity,result;
         Operatori SelektovanOperater = Operatori.Ne_Selektovan;
-        bool IsOcupied = true,check = true,afterjednako = false;
+        bool IsOcupied = true,check = true,afterjednako = false, bla;
 
         public MainWindow()
         {
@@ -76,10 +77,11 @@ namespace Racunar
             {
                 ResultLabel.Content = $"{selectedItem}";
             }
-            else if (ResultLabel.Content.ToString().Length<16)
+            else if(ResultLabel.Content.ToString().Length<=15)
             {
+                
                 ResultLabel.Content = $"{ResultLabel.Content.ToString() + selectedItem}";
-                HundredSeparator(ResultLabel);
+                
             }
         }
 
@@ -125,29 +127,29 @@ namespace Racunar
              {
                  OperatorLabel.Content = "/";
                  SelektovanOperater = Operatori.Deljenje;
-                 FirstNUmLabel.Content = firstNum.ToString();
-                 HundredSeparator(FirstNUmLabel);
+                 FirstNUmLabel.Content = firstNum;
+                 
 
              }
             if (sender == Puta)
             {
                 OperatorLabel.Content = "*";
                 SelektovanOperater = Operatori.Mnozenje;
-                FirstNUmLabel.Content = firstNum.ToString();
+                FirstNUmLabel.Content = firstNum;
                 
             }
             if (sender == Plus)
             {
                 OperatorLabel.Content = "+";
                 SelektovanOperater = Operatori.Sabiranje;
-                FirstNUmLabel.Content = firstNum.ToString();
+                FirstNUmLabel.Content = firstNum;
                 
             }
             if (sender == Minus)
             {
                 OperatorLabel.Content = "-";
                 SelektovanOperater = Operatori.oduzimanje;
-                FirstNUmLabel.Content = firstNum.ToString();
+                FirstNUmLabel.Content = firstNum;
                 
             }
             
@@ -182,32 +184,39 @@ namespace Racunar
                         switch (SelektovanOperater)
                         {
                             case Operatori.Sabiranje:
-                                ResultLabel.Content = 
-                               Operators.Sabiranje(firstNum, secnum);
+                                result = Operators.Sabiranje(firstNum, secnum);
+                                ResultLabel.Content = result;
                                 break;
                             case Operatori.oduzimanje:
+                                result = Operators.Oduzimanje(firstNum, secnum);
                                 ResultLabel.Content =
-                                Operators.Oduzimanje(firstNum, secnum);
+                                     result;
 
                                 break;
                             case Operatori.Deljenje:
+                                result = Operators.Deljenje(firstNum, secnum);
                                 ResultLabel.Content =
-                                Operators.Deljenje(firstNum, secnum);
+                                result;
                                 break;
                             case Operatori.Mnozenje:
+                                result = Operators.Mnozenje(firstNum, secnum);
                                 ResultLabel.Content =
-                               Operators.Mnozenje(firstNum, secnum);
+                                result;
                                 break;
                             
                             default:
                                 break;
                         }
 
-                SetLabelFontSize(ResultLabel);
+                
             }
-
-           
-
+            
+            ResultLabel.Content = result.ToString();
+            result = ResultLabel.Content.ToString().Count();
+            SetLabelFontSize(ResultLabel);
+            
+            
+            
             afterjednako = true;
 
             if (double.TryParse(ResultLabel.Content.ToString(), out infinity))
@@ -229,7 +238,7 @@ namespace Racunar
             }
 
             check = false;
-            HundredSeparator(ResultLabel);
+           
             
         }
 
@@ -300,33 +309,41 @@ namespace Racunar
 
         public void SetLabelFontSize(Label label)
         {
-            
-                if (label.Content.ToString().Length >= 18)
+
+            if (label.Content.ToString().Count() >= 17 && label.Content.ToString().Count() <= 19)
                 {
-                    label.FontSize = 8;
+                    label.FontSize = 9;
                 }
-                if (label.Content.ToString().Length > 13 && label.Content.ToString().Length < 18)
+            if (label.Content.ToString().Count()>15 && label.Content.ToString().Contains("E"))
+            {
+                label.FontSize = 8;
+            }
+                if (label.Content.ToString().Count() > 13 && label.Content.ToString().Count() < 17)
                 {
-                    label.FontSize = 10;
+                    label.FontSize = 11;
 
                 }
             
             
         }
 
-        public void HundredSeparator(Label label)
+        public void FormatedNumber(string str)
+        {
+           
+        }
+      /*  public void HundredSeparator(Label label)
         {
 
 
             if (!label.Content.ToString().Contains(",")&& !label.Content.ToString().Contains("ERROR"))
             {
                 double result = Convert.ToDouble(label.Content);
-                label.Content = result.ToString("n0");
+                label.Content = result.ToString("N0");
             }
             
                 
             
-        }
+        }*/
     }
 
        

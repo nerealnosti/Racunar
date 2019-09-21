@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Racunar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="300"
+        Title="MainWindow" Height="520" Width="320"
         ResizeMode="NoResize"
         WindowStyle="None"
         Background="Transparent"
