@@ -172,7 +172,7 @@ namespace Racunar
                 OnemoguciDugmicePoslegreske();
                 PocetneVrednostiZaOperatore();
                 ResultLabel.Foreground = Brushes.Red;
-                ResultLabel.FontSize = 5;
+                ResultLabel.FontSize = 6;
                 ResultLabel.Content = "ERROR DEVIDE BY ZERO NOT DEFINED  ";
             }
             else if (SelektovanOperater == Operatori.Deljenje ||
@@ -279,7 +279,7 @@ namespace Racunar
                 OnemoguciDugmicePoslegreske();
                 PocetneVrednostiZaOperatore();
                 label.Foreground = Brushes.Red;
-                label.FontSize = 5;
+                label.FontSize = 6;
                 label.Content = "ERROR OUT OF RANGE";
             }
             

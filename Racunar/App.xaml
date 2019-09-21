@@ -5,8 +5,9 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-       
-      <Style x:Key="RoundedButtonStyle" TargetType="Button">
+        
+
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
              
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="15"/>
@@ -69,7 +70,8 @@
             </Setter>
 
         </Style>
-<!--#endregion-->
+        <FontFamily x:Key="Font">/Racunar;component/Resorces/#Advanced Pixel LCD-7</FontFamily>
+        <!--#endregion-->
         
     </Application.Resources>
 </Application>

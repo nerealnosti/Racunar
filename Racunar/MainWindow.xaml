@@ -54,8 +54,7 @@
                    VerticalContentAlignment="Bottom"
                    Margin="10,40,10,25" 
                    Content="0"
-                   FontSize="15" FontFamily="Advanced Pixel LCD-7"
-                   
+                   FontSize="15" FontFamily="{DynamicResource Font}"
                    >
 
             </Label>
@@ -64,13 +63,13 @@
                    HorizontalContentAlignment="Center"
                    VerticalContentAlignment="Top"
                    Margin="20,35,20,70" FontSize="12" 
-                   FontFamily="Advanced Pixel LCD-7"
+                   FontFamily="{DynamicResource Font}"
                    Content=""/>
 
             <Label Name="FirstNUmLabel" Grid.Column="0" Grid.Row="0"
                    HorizontalContentAlignment="Right" VerticalContentAlignment="Top"
                    Margin="20,35,50,70"
-                   FontFamily="Advanced Pixel LCD-7"
+                   FontFamily="{DynamicResource Font}"
                    FontSize="8"
                    Grid.ColumnSpan="4"
                    Content=""/>
