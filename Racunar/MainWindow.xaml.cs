@@ -26,7 +26,7 @@ namespace Racunar
     {
         private double firstNum,secnum,infinity,result;
         Operatori SelektovanOperater = Operatori.Ne_Selektovan;
-        bool IsOcupied = true,check = true,afterjednako = false, bla;
+        bool IsOcupied = true,check = true,afterjednako = true, bla;
 
         public MainWindow()
         {
@@ -197,6 +197,7 @@ namespace Racunar
                                 result = Operators.Deljenje(firstNum, secnum);
                                 ResultLabel.Content =
                                 result;
+                                DeljenjeRezultujeNulu(result, ResultLabel);
                                 break;
                             case Operatori.Mnozenje:
                                 result = Operators.Mnozenje(firstNum, secnum);
@@ -210,9 +211,12 @@ namespace Racunar
 
                 
             }
+            if (result != 0)
+            {
+                ResultLabel.Content = result.ToString();
+            }
             
-            ResultLabel.Content = result.ToString();
-            result = ResultLabel.Content.ToString().Count();
+            
             SetLabelFontSize(ResultLabel);
             
             
@@ -310,27 +314,39 @@ namespace Racunar
         public void SetLabelFontSize(Label label)
         {
 
-            if (label.Content.ToString().Count() >= 17 && label.Content.ToString().Count() <= 19)
-                {
-                    label.FontSize = 9;
-                }
-            if (label.Content.ToString().Count()>15 && label.Content.ToString().Contains("E"))
+            if (!ResultLabel.Content.ToString().Contains("ERROR"))
             {
-                label.FontSize = 8;
-            }
+                if (label.Content.ToString().Count() >= 17 && label.Content.ToString().Count() <= 19)
+                {
+                    label.FontSize = 10;
+                }
+                if (label.Content.ToString().Count() > 21 && label.Content.ToString().Contains("E"))
+                {
+                    label.FontSize = 8;
+                }
+
                 if (label.Content.ToString().Count() > 13 && label.Content.ToString().Count() < 17)
                 {
                     label.FontSize = 11;
 
                 }
+            }
             
             
         }
 
-        public void FormatedNumber(string str)
+        public void DeljenjeRezultujeNulu(double res, Label label)
         {
-           
+            if (res == 0)
+            {
+                OnemoguciDugmicePoslegreske();
+                PocetneVrednostiZaOperatore();
+                label.Foreground = Brushes.Red;
+                label.FontSize = 6;
+                label.Content = "ERROR OUT OF RANGE";
+            }
         }
+
       /*  public void HundredSeparator(Label label)
         {
 
