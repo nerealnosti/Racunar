@@ -9,7 +9,7 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         Background="Transparent"
-        AllowsTransparency="True" MouseDown="MoveWindowsMouseDown" MouseMove="MoveWindowsMouseMove" 
+        AllowsTransparency="True" MouseDown="MoveWindowsMouseDown"  
         
         >
 
