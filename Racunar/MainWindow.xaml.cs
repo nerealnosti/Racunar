@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Racunar.Classes;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace Racunar
 {
@@ -25,11 +28,18 @@ namespace Racunar
     public partial class MainWindow : Window
     {
         private double firstNum,secnum,infinity,result;
+
         Operatori SelektovanOperater = Operatori.Ne_Selektovan;
-        bool IsOcupied = true,check = true,afterjednako = true, bla;
+
+        bool IsOcupied = true,check = true,afterjednako = true;
+
+        private int _mousePositionX, _mousePositionY;
+
+        bool mouseDownPosition;
 
         public MainWindow()
         {
+            
             InitializeComponent();
         }
 
@@ -256,7 +266,16 @@ namespace Racunar
             Ne_Selektovan
         }
 
+        private void MoveWindowsMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                DragMove();
+            }
+        }
+
        
+
         public void PocetneVrednostiZaOperatore()
         {
             OperatorLabel.Content = "";
