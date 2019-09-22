@@ -33,9 +33,7 @@ namespace Racunar
 
         bool IsOcupied = true,check = true,afterjednako = true;
 
-        private int _mousePositionX, _mousePositionY;
-
-        bool mouseDownPosition;
+       
 
         public MainWindow()
         {
