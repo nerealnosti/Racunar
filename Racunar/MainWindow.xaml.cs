@@ -35,7 +35,7 @@ namespace Racunar
             check = true, afterJednko = true,
             afterDot = false;
 
-       
+        Button NumbersButtons;
 
         public MainWindow()
         {
@@ -66,13 +66,18 @@ namespace Racunar
             {
                PocetneVrednostiZaOperatore();
             }
-            int selectedItem = 0;
+            
             if (IsOcupied)
             {
                 ResultLabel.Content = "";
             }
             IsOcupied = false;
-            if (sender == Jedan) selectedItem = 1;
+
+            NumbersButtons = (Button)sender;
+
+          /*  if (sender == Jedan) {
+                
+                selectedItem = 1; }
             if (sender == Dva) selectedItem = 2;
             if (sender == Tri) selectedItem = 3;
             if (sender == Cetri) selectedItem = 4;
@@ -81,16 +86,16 @@ namespace Racunar
             if (sender == Sedam) selectedItem = 7;
             if (sender == Osam) selectedItem = 8;
             if (sender == Devet) selectedItem = 9;
-            if (sender == Nula) selectedItem = 0;
+            if (sender == Nula) selectedItem = 0;*/
 
             if (ResultLabel.Content.ToString() == "0")
             {
-                ResultLabel.Content = $"{selectedItem}";
+                ResultLabel.Content = $"{NumbersButtons.Content}";
             }
             else if(ResultLabel.Content.ToString().Length<=15)
             {
                 
-                ResultLabel.Content = $"{ResultLabel.Content.ToString() + selectedItem}";
+                ResultLabel.Content = $"{ResultLabel.Content}{NumbersButtons.Content}";
                 
             }
         }
@@ -265,8 +270,8 @@ namespace Racunar
             }
 
             check = false;
-           
-            
+
+
         }
 
 
@@ -304,8 +309,6 @@ namespace Racunar
             ResultLabel.FontSize = 15;
             firstNum = 0;
             secnum = 0;
-
-            
 
         }
 
@@ -354,13 +357,13 @@ namespace Racunar
 
             if (!ResultLabel.Content.ToString().Contains("ERROR"))
             {
-                if (label.Content.ToString().Count() >= 17 && label.Content.ToString().Count() <= 19)
+                if (label.Content.ToString().Count() >= 17 && label.Content.ToString().Count() <= 20)
                 {
                     label.FontSize = 10;
                 }
                 if (label.Content.ToString().Count() > 20 && label.Content.ToString().Contains("E"))
                 {
-                    label.FontSize = 8;
+                    label.FontSize = 9;
                 }
 
                 if (label.Content.ToString().Count() > 13 && label.Content.ToString().Count() < 17)
