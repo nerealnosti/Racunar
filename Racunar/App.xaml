@@ -17,7 +17,6 @@
             <Setter Property="Button.BorderThickness" Value="3,0,3,5"/>
 
 
-
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -28,7 +27,7 @@
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="Button.IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Button.BorderThickness" Value="3,2,3,3"/>
+                                <Setter TargetName="border" Property="Button.BorderThickness" Value="3,3,3,3"/>
                             </Trigger>
                             <Trigger Property="Button.IsEnabled" Value="False">
                                 <Setter TargetName="border" Property="Button.BorderThickness" Value="3,2,3,3"/>
@@ -45,8 +44,48 @@
              
             
 
-        </Style> 
-<!--#region  Label LL-->
+        </Style>
+
+        <Style x:Key="RoundedButtonStyle1" TargetType="Button">
+
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="6"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="3"/>
+
+            <Setter Property="Button.BorderThickness" Value="3,0,3,5"/>
+
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+
+                        <Border x:Name="border" CornerRadius="12" BorderThickness="1,0,1,3" Padding="2" BorderBrush="#1D2E36" Background="#2F4958">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Button.BorderThickness" Value="2,2,2,2"/>
+                            </Trigger>
+                            <Trigger Property="Button.IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Button.BorderThickness" Value="2,2,2,2"/>
+                                <Setter Property="Foreground" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+
+            </Setter>
+
+
+
+        </Style>
+
+        <!--#region  Label LL-->
         <Style x:Key="LL" TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="FontWeight" Value="Bold"/>

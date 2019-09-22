@@ -287,7 +287,13 @@ namespace Racunar
             }
         }
 
-       
+        
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            
+        }
 
         public void PocetneVrednostiZaOperatore()
         {
@@ -352,7 +358,7 @@ namespace Racunar
                 {
                     label.FontSize = 10;
                 }
-                if (label.Content.ToString().Count() > 21 && label.Content.ToString().Contains("E"))
+                if (label.Content.ToString().Count() > 20 && label.Content.ToString().Contains("E"))
                 {
                     label.FontSize = 8;
                 }
