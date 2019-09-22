@@ -19,7 +19,7 @@
 
 
     <Border  CornerRadius="15" Background="#EA5F5C" BorderThickness="2,0,2,6" BorderBrush="#C33F3B" >
-        
+
         <Grid x:Name="mainGrid" Margin="10" 
                 Background="#EA5F5C">
 
@@ -30,15 +30,18 @@
                 <ColumnDefinition Width="74*"/>
                 <ColumnDefinition Width="74*"/>
                 <ColumnDefinition Width="74*"/>
+
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
+
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+
             </Grid.RowDefinitions>
 
 

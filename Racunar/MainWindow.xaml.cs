@@ -31,7 +31,9 @@ namespace Racunar
 
         Operatori SelektovanOperater = Operatori.Ne_Selektovan;
 
-        bool IsOcupied = true,check = true,afterjednako = true;
+        bool IsOcupied = true,
+            check = true, afterJednko = true,
+            afterDot = false;
 
        
 
@@ -43,14 +45,14 @@ namespace Racunar
 
         private void Numbers_Click (object sender , RoutedEventArgs e)
         {
-            if (afterjednako)
+            if (afterJednko && !afterDot)
             {
                 PocetneVrednostiZaOperatore();
                 SelektovanOperater = Operatori.Ne_Selektovan;
 
             }
-
-            afterjednako = false;
+            afterDot = false;
+            afterJednko = false;
 
 
             SetLabelFontSize(ResultLabel);
@@ -111,9 +113,22 @@ namespace Racunar
 
         private void Tacka_Click(object sender, RoutedEventArgs e)
         {
-            if (!ResultLabel.Content.ToString().Contains(","))
+            if (!afterJednko)
             {
-                ResultLabel.Content = $"{ResultLabel.Content},";
+                if (!ResultLabel.Content.ToString().Contains(","))
+                {
+                    ResultLabel.Content = $"{ResultLabel.Content},";
+                }
+            }
+            else
+            {
+                PocetneVrednostiZaOperatore();
+                if (!ResultLabel.Content.ToString().Contains(","))
+                {
+                    ResultLabel.Content = 0;
+                    ResultLabel.Content = $"{ResultLabel.Content},";
+                    afterDot = true;
+                }
             }
         }
 
@@ -127,7 +142,7 @@ namespace Racunar
 
         private void Operacije_Click(object sender,RoutedEventArgs e)
         {
-            afterjednako = false;
+            afterJednko = false;
             check = true;
             if (double.TryParse(ResultLabel.Content.ToString(), out firstNum))
                 
@@ -229,7 +244,7 @@ namespace Racunar
             
             
             
-            afterjednako = true;
+            afterJednko = true;
 
             if (double.TryParse(ResultLabel.Content.ToString(), out infinity))
             {
