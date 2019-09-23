@@ -157,7 +157,7 @@ namespace Racunar
         {
             if (double.TryParse(ResultLabel.Content.ToString(), out secnum))
             {
-                secnum = secnum / 100;
+                secnum = firstNum * secnum / 100;
                 ResultLabel.Content = secnum;
             }
             
