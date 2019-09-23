@@ -9,9 +9,7 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         Background="Transparent"
-        AllowsTransparency="True" MouseDown="MoveWindowsMouseDown"  
-        
-        >
+        AllowsTransparency="True" MouseDown="MoveWindowsMouseDown"   >
 
 
 
@@ -25,39 +23,41 @@
 
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="8*"/>
-                <ColumnDefinition Width="66*"/>
-                <ColumnDefinition Width="75*"/>
-                <ColumnDefinition Width="75*"/>
-                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="74*"/>
+                <ColumnDefinition Width="74*"/>
+                <ColumnDefinition Width="74*"/>
+                <ColumnDefinition Width="74*"/>
+                <ColumnDefinition Width="3*"/>
 
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
 
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="2*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
 
             </Grid.RowDefinitions>
 
 
 
-            <Label x:Name="BackGroundLabel" Grid.Column="0" Grid.Row="0"
-               Grid.ColumnSpan="5"
+            <Label x:Name="BackGroundLabel" Grid.Column="1" Grid.Row="0"
+               Grid.ColumnSpan="4"
                
                HorizontalContentAlignment="Right"
                VerticalContentAlignment="Bottom"
-               Style="{StaticResource LL}" Margin="5,25,5,14.8">
+               Style="{StaticResource LL}">
 
             </Label>
             <Label Name="ResultLabel" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4"
                    HorizontalContentAlignment="Right" 
                    VerticalContentAlignment="Bottom"
-                   Margin="1.7,40,10,24.8" 
+                   Margin="1,40,10,24.8" 
                    Content="0"
                    FontSize="15" FontFamily="{DynamicResource Font}"
                    >
@@ -73,7 +73,7 @@
 
             <Label Name="FirstNUmLabel" Grid.Column="1" Grid.Row="0"
                    HorizontalContentAlignment="Right" VerticalContentAlignment="Top"
-                   Margin="11.7,35,50,69.8"
+                   Margin="11,35,50,69.8"
                    FontFamily="{DynamicResource Font}"
                    FontSize="8"
                    Grid.ColumnSpan="4"
@@ -81,144 +81,179 @@
 
             <Button x:Name="acButton" 
                 Content="AC"
-                Grid.Column="0"
-                Grid.Row="1" 
+                Grid.Column="1"
+                Grid.Row="2" 
                 Style="{StaticResource RoundedButtonStyle}" 
-                    Click="AcButton_Click" Grid.ColumnSpan="2" Margin="3,3.2,2.6,3.2"
+                    Click="AcButton_Click"
                         
                 />
+            <Button x:Name="MC" 
+                Margin="4"
+                FontSize="13"  
+                Content="MC"
+                Grid.Column="1"
+                Grid.Row="1" 
+                Style="{StaticResource RoundedButtonStyle}"
+                       />
+            <Button x:Name="MR" 
+                 Margin="4"
+                Content="MR"
+                Grid.Column="2"
+                Grid.Row="1"
+                FontSize="13"
+                Style="{StaticResource RoundedButtonStyle}"
+                        />
+            <Button x:Name="MPlus"
+                 Margin="4"
+                Content="M+"
+                Grid.Column="3"
+                Grid.Row="1" 
+                FontSize="13"
+                Style="{StaticResource RoundedButtonStyle}"
+                       />
+
+            <Button x:Name="MMinus"
+                Margin="4"
+                Content="M-"
+                Grid.Column="4"
+                Grid.Row="1" 
+                VerticalContentAlignment="Center"
+                FontSize="13"
+                Style="{StaticResource RoundedButtonStyle}"
+                       />
+
 
             <Button x:Name="plusMinus" 
                 Content="+/-"
                 Grid.Column="2"
-                Grid.Row="1" 
+                Grid.Row="2" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="PlusMinus_Click" Margin="3.4,3.2,3,3.2"/>
+                        Click="PlusMinus_Click"/>
 
             <Button x:Name="Procenat" 
                 Content="%"
                 Grid.Column="3"
-                Grid.Row="1" 
+                Grid.Row="2" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Procenat_Click" Margin="3,3.2,2.6,3.2"/>
+                        Click="Procenat_Click"/>
 
             <Button x:Name="Podeljeno" 
                 Content="/"
                 Grid.Column="4"
-                Grid.Row="1" 
+                Grid.Row="2" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Operacije_Click" Margin="3.4,3.2,3,3.2"/>
+                        Click="Operacije_Click" />
 
             <Button x:Name="Sedam" 
                 Content="7"
-                Grid.Column="0"
-                Grid.Row="2" 
+                Grid.Column="1"
+                Grid.Row="3" 
                 Style="{StaticResource RoundedButtonStyle}"
-                    Click="Numbers_Click" Grid.ColumnSpan="2" Margin="3,2.8,2.6,2.6"   />
+                    Click="Numbers_Click"   />
 
             <Button x:Name="Osam" 
                 Content="8"
                 Grid.Column="2"
-                Grid.Row="2" 
+                Grid.Row="3" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Numbers_Click" Margin="3.4,2.8,3,2.6"/>
+                        Click="Numbers_Click"/>
 
             <Button x:Name="Devet" 
                 Content="9"
                 Grid.Column="3"
-                Grid.Row="2" 
+                Grid.Row="3" 
                 Style="{StaticResource RoundedButtonStyle}"
-                    Click="Numbers_Click" Margin="3,2.8,2.6,2.6"    />
+                    Click="Numbers_Click"   />
 
             <Button x:Name="Puta" 
                 Content="*"
                 Grid.Column="4"
-                Grid.Row="2" 
+                Grid.Row="3" 
                 Style="{StaticResource RoundedButtonStyle}"
-                    Click="Operacije_Click" Margin="3.4,2.8,3,2.6"/>
+                    Click="Operacije_Click"/>
 
             <Button x:Name="Cetri" 
                 Content="4"
-                Grid.Column="0"
-                Grid.Row="3" 
+                Grid.Column="1"
+                Grid.Row="4" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Numbers_Click" Grid.ColumnSpan="2" Margin="3,3.4,2.6,3"/>
+                        Click="Numbers_Click" />
 
             <Button x:Name="Pet" 
                 Content="5"
                 Grid.Column="2"
-                Grid.Row="3" 
+                Grid.Row="4" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click='Numbers_Click' Margin="3.4,3.4,3,3"/>
+                        Click='Numbers_Click' />
 
             <Button x:Name="Sest" 
                 Content="6"
                 Grid.Column="3"
-                Grid.Row="3" 
+                Grid.Row="4" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Numbers_Click" Margin="3,3.4,2.6,3"/>
+                        Click="Numbers_Click"/>
 
             <Button x:Name="Minus" 
                 Content="-"
                 Grid.Column="4"
-                Grid.Row="3" 
+                Grid.Row="4" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Operacije_Click" Margin="3.4,3.4,3,3"/>
+                        Click="Operacije_Click"/>
 
             <Button x:Name="Jedan" 
                 Content="1"
-                Grid.Column="0"
-                Grid.Row="4" 
+                Grid.Column="1"
+                Grid.Row="5" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Numbers_Click" Grid.ColumnSpan="2" Margin="3,3,2.6,3.2"/>
+                        Click="Numbers_Click"/>
 
             <Button x:Name="Dva" 
                 Content="2"
                 Grid.Column="2"
-                Grid.Row="4" 
+                Grid.Row="5" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Numbers_Click" Margin="3.4,3,3,3.2"/>
+                        Click="Numbers_Click" />
 
             <Button x:Name="Tri" 
                 Content="3"
                 Grid.Column="3"
-                Grid.Row="4" 
+                Grid.Row="5" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Numbers_Click" Margin="3,3,2.6,3.2"/>
+                        Click="Numbers_Click" />
 
             <Button x:Name="Plus" 
                 Content="+"
                 Grid.Column="4"
-                Grid.Row="4" 
+                Grid.Row="5" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Operacije_Click" Margin="3.4,3,3,3.2"/>
+                        Click="Operacije_Click"/>
 
             <Button x:Name="Nula" 
                 Content="0"
-                Grid.Column="0"
-                Grid.Row="5" 
-                Grid.ColumnSpan="3"
+                Grid.Column="1"
+                Grid.Row="6" 
+                Grid.ColumnSpan="2"
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Numbers_Click" Margin="3,2.8,3,2.6"/>
+                        Click="Numbers_Click"/>
 
             <Button x:Name="Tacka" 
                 Content="."
                 Grid.Column="3"
-                Grid.Row="5" 
+                Grid.Row="6" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Tacka_Click" Margin="3,2.8,2.6,2.6"/>
+                        Click="Tacka_Click"/>
 
             <Button x:Name="Jednako" 
                 Content="="
                 Grid.Column="4"
-                Grid.Row="5" 
+                Grid.Row="6" 
                 Style="{StaticResource RoundedButtonStyle}"
-                        Click="Jednako_Click" Margin="3.4,2.8,3,2.6"/>
+                        Click="Jednako_Click"/>
 
             <Button x:Name="CloseButton" Style="{StaticResource RoundedButtonStyle1}"
                     Content="OFF" 
                     HorizontalAlignment="Left" 
-                    Margin="53.6,0,0,0" 
+                    Margin="53.4,0,0,0" 
                     VerticalAlignment="Top"
                     Width="20"
                     Height="20"
