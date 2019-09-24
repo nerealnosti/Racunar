@@ -45,8 +45,11 @@ namespace Racunar
         //proverava da li je tacka stavljena
         afterDot = false,
 
-        operationPerformed = false,
-        operationPerformed1 = false;
+        operationPerformed = false;
+
+        private double _memory;
+
+        
             
             // za uzimanje vrednosti iz sendera 
             Button NumbersButtons;
@@ -55,6 +58,9 @@ namespace Racunar
         {
             
             InitializeComponent();
+            MR.IsEnabled = false;
+            MPlus.IsEnabled = false;
+            MC.IsEnabled = false;
         }
         // event za brojeve
 
@@ -118,7 +124,7 @@ namespace Racunar
             PocetneVrednostiZaOperatore();
             ResultLabel.Content = "0";
             operationPerformed = false;
-            operationPerformed1 = false;
+            
 
         }
         // mennja znak mnozenjem sa -1
@@ -158,7 +164,8 @@ namespace Racunar
             if (double.TryParse(ResultLabel.Content.ToString(), out secnum))
             {
                 secnum = firstNum * secnum / 100;
-                ResultLabel.Content = secnum;
+                ResultLabel.Content = secnum.ToString("R");
+                SetLabelFontSize(ResultLabel);
             }
             
         }
@@ -332,7 +339,34 @@ namespace Racunar
             }
         }
 
-        
+        private void MStore_Click(object sender, RoutedEventArgs e)
+        {
+            double.TryParse(ResultLabel.Content.ToString(), out _memory);
+            MR.IsEnabled = true;
+            MC.IsEnabled = true;
+            MPlus.IsEnabled = true;
+        }
+
+        private void MR_Click(object sender, RoutedEventArgs e)
+        {
+           
+            ResultLabel.Content = _memory;
+        }
+
+        private void MC_Click(object sender, RoutedEventArgs e)
+        {
+            MR.IsEnabled = false;
+            MPlus.IsEnabled = false;
+            MC.IsEnabled = false;
+            double.IsNaN(_memory);
+        }
+
+        private void MPlus_Click(object sender, RoutedEventArgs e)
+        {
+            _memory = _memory + double.Parse(ResultLabel.Content.ToString());
+        }
+
+
         //close
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -397,13 +431,13 @@ namespace Racunar
 
             if (!ResultLabel.Content.ToString().Contains("ERROR"))
             {
-                if (label.Content.ToString().Count() >= 17 && label.Content.ToString().Count() <= 20)
-                {
-                    label.FontSize = 10;
-                }
-                if (label.Content.ToString().Count() > 20 && label.Content.ToString().Contains("E"))
+                if (label.Content.ToString().Count() >= 15 && label.Content.ToString().Count() <= 20)
                 {
                     label.FontSize = 9;
+                }
+                if (label.Content.ToString().Count() > 20)
+                {
+                    label.FontSize = 8;
                 }
 
                 if (label.Content.ToString().Count() > 13 && label.Content.ToString().Count() < 17)

@@ -91,8 +91,9 @@
                 Margin="4"
                 FontSize="13"  
                 Content="MC"
-                Grid.Column="1"
+                Grid.Column="3"
                 Grid.Row="1" 
+                    Click="MC_Click"
                 Style="{StaticResource RoundedButtonStyle}"
                        />
             <Button x:Name="MR" 
@@ -102,24 +103,27 @@
                 Grid.Row="1"
                 FontSize="13"
                 Style="{StaticResource RoundedButtonStyle}"
+                    Click="MR_Click"
                         />
             <Button x:Name="MPlus"
                  Margin="4"
                 Content="M+"
-                Grid.Column="3"
+                Grid.Column="4"
                 Grid.Row="1" 
                 FontSize="13"
+                    Click="MPlus_Click"
                 Style="{StaticResource RoundedButtonStyle}"
                        />
 
-            <Button x:Name="MMinus"
+            <Button x:Name="MStore"
                 Margin="4"
-                Content="M-"
-                Grid.Column="4"
+                Content="MS"
+                Grid.Column="1"
                 Grid.Row="1" 
                 VerticalContentAlignment="Center"
                 FontSize="13"
                 Style="{StaticResource RoundedButtonStyle}"
+                    Click="MStore_Click"
                        />
 
 
