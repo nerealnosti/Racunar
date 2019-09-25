@@ -9,7 +9,8 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         Background="Transparent"
-        AllowsTransparency="True" MouseDown="MoveWindowsMouseDown"   >
+        AllowsTransparency="True" MouseDown="MoveWindowsMouseDown" 
+        Keyboard.KeyDown="Window_KeyDown">
 
 
 
@@ -24,6 +25,7 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="74*"/>
                 <ColumnDefinition Width="74*"/>
                 <ColumnDefinition Width="74*"/>
                 <ColumnDefinition Width="74*"/>
@@ -47,14 +49,14 @@
 
 
             <Label x:Name="BackGroundLabel" Grid.Column="1" Grid.Row="0"
-               Grid.ColumnSpan="4"
+               Grid.ColumnSpan="5"
                
                HorizontalContentAlignment="Right"
                VerticalContentAlignment="Bottom"
                Style="{StaticResource LL}">
 
             </Label>
-            <Label Name="ResultLabel" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="4"
+            <Label Name="ResultLabel" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5"
                    HorizontalContentAlignment="Right" 
                    VerticalContentAlignment="Bottom"
                    Margin="1,40,10,24.8" 
@@ -78,6 +80,43 @@
                    FontSize="8"
                    Grid.ColumnSpan="4"
                    Content=""/>
+
+            <Button x:Name="MNinus" 
+                Margin="4"
+                FontSize="13"
+                Content="M-"
+                Grid.Column="5"
+                Grid.Row="1" 
+                Style="{StaticResource RoundedButtonStyle}"
+                    Click="MNinus_Click"/>
+
+            <Button x:Name="Koren" 
+                Grid.Column="5"
+                Content="√"
+                Grid.Row="3" 
+                Style="{StaticResource RoundedButtonStyle}"
+                    Click="Koren_Click"/>
+
+            <Button x:Name="BackSpace" 
+                Grid.Column="3"
+                Content="«"
+                Grid.Row="2" 
+                Style="{StaticResource RoundedButtonStyle}"
+                    Click="BackSpace_Click"/>
+
+            <Button x:Name="C" 
+                Grid.Column="2"
+                Content="C"
+                Grid.Row="2" 
+                Style="{StaticResource RoundedButtonStyle}"
+                    Click="C_Click"/>
+
+            <Button x:Name="Kvadrat" 
+                Content="x²"
+                Grid.Column="5"
+                Grid.Row="4" 
+                Style="{StaticResource RoundedButtonStyle}"
+                    Click="Kvadrat_Click"/>
 
             <Button x:Name="acButton" 
                 Content="AC"
@@ -129,14 +168,14 @@
 
             <Button x:Name="plusMinus" 
                 Content="+/-"
-                Grid.Column="2"
-                Grid.Row="2" 
+                Grid.Column="4"
+                Grid.Row="6" 
                 Style="{StaticResource RoundedButtonStyle}"
                         Click="PlusMinus_Click"/>
 
             <Button x:Name="Procenat" 
                 Content="%"
-                Grid.Column="3"
+                Grid.Column="5"
                 Grid.Row="2" 
                 Style="{StaticResource RoundedButtonStyle}"
                         Click="Procenat_Click"/>
@@ -153,7 +192,8 @@
                 Grid.Column="1"
                 Grid.Row="3" 
                 Style="{StaticResource RoundedButtonStyle}"
-                    Click="Numbers_Click"   />
+                    Click="Numbers_Click" 
+                   />
 
             <Button x:Name="Osam" 
                 Content="8"
@@ -249,22 +289,22 @@
 
             <Button x:Name="Jednako" 
                 Content="="
-                Grid.Column="4"
-                Grid.Row="6" 
+                    Grid.RowSpan="2"
+                Grid.Column="5"
+                Grid.Row="5" 
                 Style="{StaticResource RoundedButtonStyle}"
                         Click="Jednako_Click"/>
 
             <Button x:Name="CloseButton" Style="{StaticResource RoundedButtonStyle1}"
                     Content="OFF" 
                     HorizontalAlignment="Left" 
-                    Margin="53.4,0,0,0" 
+                    Margin="25.8,0,0,0" 
                     VerticalAlignment="Top"
-                    Width="20"
-                    Height="20"
+                    Width="30"
                     
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Top"
-                    Click="CloseButton_Click" FontFamily="Arial" RenderTransformOrigin="0.51,0.09" Grid.Column="4"
+                    Click="CloseButton_Click" FontFamily="Arial" Grid.Column="5" 
                     />
 
 

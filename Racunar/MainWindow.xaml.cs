@@ -50,18 +50,28 @@ namespace Racunar
         private double _memory;
 
         
+
+        
             
             // za uzimanje vrednosti iz sendera 
             Button NumbersButtons;
 
         public MainWindow()
         {
-            
+
             InitializeComponent();
+            MemoryDisable();
+            
+        }
+
+        private void MemoryDisable()
+        {
             MR.IsEnabled = false;
             MPlus.IsEnabled = false;
             MC.IsEnabled = false;
+            MNinus.IsEnabled = false;
         }
+
         // event za brojeve
 
         private void Numbers_Click (object sender , RoutedEventArgs e)
@@ -342,22 +352,27 @@ namespace Racunar
         private void MStore_Click(object sender, RoutedEventArgs e)
         {
             double.TryParse(ResultLabel.Content.ToString(), out _memory);
+            MemoryEnabled();
+        }
+
+        private void MemoryEnabled()
+        {
             MR.IsEnabled = true;
             MC.IsEnabled = true;
             MPlus.IsEnabled = true;
+            MNinus.IsEnabled = true;
         }
-
+        #region Memory Butoons
         private void MR_Click(object sender, RoutedEventArgs e)
         {
            
             ResultLabel.Content = _memory;
+            SetLabelFontSize(ResultLabel);
         }
 
         private void MC_Click(object sender, RoutedEventArgs e)
         {
-            MR.IsEnabled = false;
-            MPlus.IsEnabled = false;
-            MC.IsEnabled = false;
+            MemoryDisable();
             double.IsNaN(_memory);
         }
 
@@ -365,6 +380,54 @@ namespace Racunar
         {
             _memory = _memory + double.Parse(ResultLabel.Content.ToString());
         }
+
+        private void MNinus_Click(object sender, RoutedEventArgs e)
+        {
+            _memory = _memory - double.Parse(ResultLabel.Content.ToString());
+        }
+
+        #endregion
+        private void Koren_Click(object sender, RoutedEventArgs e)
+        {
+            ResultLabel.Content = Math.Sqrt(double.Parse(ResultLabel.Content.ToString()));
+            SetLabelFontSize(ResultLabel);
+        }
+
+        private void C_Click(object sender, RoutedEventArgs e)
+        {
+            ResultLabel.Content = 0;
+        }
+
+        private void Kvadrat_Click(object sender, RoutedEventArgs e)
+        {
+            ResultLabel.Content = Math.Pow(double.Parse(ResultLabel.Content.ToString()), 2);
+            SetLabelFontSize(ResultLabel);
+        }
+
+        private void BackSpace_Click(object sender, RoutedEventArgs e)
+        {
+            if (ResultLabel.Content.ToString().Length!=1)
+            {
+                ResultLabel.Content = ResultLabel.Content.ToString().Substring(0, ResultLabel.Content.ToString().Length - 1);
+            }
+            else
+            {
+                ResultLabel.Content = 0;
+            }
+            
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (char.IsDigit((char)e.Key))
+            {
+               ResultLabel.Content = (char)e.Key;
+            }
+        }
+
+
+
+
 
 
         //close
@@ -433,11 +496,11 @@ namespace Racunar
             {
                 if (label.Content.ToString().Count() >= 15 && label.Content.ToString().Count() <= 20)
                 {
-                    label.FontSize = 9;
+                    label.FontSize = 10;
                 }
                 if (label.Content.ToString().Count() > 20)
                 {
-                    label.FontSize = 8;
+                    label.FontSize = 9;
                 }
 
                 if (label.Content.ToString().Count() > 13 && label.Content.ToString().Count() < 17)
