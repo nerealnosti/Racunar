@@ -66,19 +66,19 @@
 
             </Label>
 
-            <Label Name="OperatorLabel" Grid.Column="4" Grid.Row="0"
+            <Label Name="OperatorLabel" Grid.Column="5" Grid.Row="0"
                    HorizontalContentAlignment="Center"
                    VerticalContentAlignment="Top"
-                   Margin="20.4,35,20,69.8" FontSize="12" 
+                   Margin="26,35,13.6,70" FontSize="12" 
                    FontFamily="{DynamicResource Font}"
-                   Content=""/>
+                   Content="" />
 
             <Label Name="FirstNUmLabel" Grid.Column="1" Grid.Row="0"
                    HorizontalContentAlignment="Right" VerticalContentAlignment="Top"
-                   Margin="11,35,50,69.8"
+                   Margin="22.6,35,45.6,70"
                    FontFamily="{DynamicResource Font}"
                    FontSize="8"
-                   Grid.ColumnSpan="4"
+                   Grid.ColumnSpan="5"
                    Content=""/>
 
             <Button x:Name="MNinus" 

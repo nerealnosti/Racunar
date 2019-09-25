@@ -419,10 +419,117 @@ namespace Racunar
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (char.IsDigit((char)e.Key))
+         if (e.Key == Key.D9)
             {
-               ResultLabel.Content = (char)e.Key;
+                Numbers_Click(Devet, e);
             }
+            else if (e.Key == Key.D8)
+            {
+                Numbers_Click(Osam, e);
+            }
+            else if (e.Key == Key.D7)
+            {
+                Numbers_Click(Sedam, e);
+            }
+            else if (e.Key == Key.D6)
+            {
+                Numbers_Click(Sest, e);
+            }
+            else if (e.Key == Key.D5)
+            {
+                Numbers_Click(Pet, e);
+            }
+            else if (e.Key == Key.D4)
+            {
+                Numbers_Click(Cetri, e);
+            }
+            else if (e.Key == Key.D3)
+            {
+                Numbers_Click(Tri, e);
+            }
+            else if (e.Key == Key.D2)
+            {
+                Numbers_Click(Dva, e);
+            }
+            else if (e.Key == Key.D1)
+            {
+                Numbers_Click(Jedan, e);
+            }
+            else if (e.Key == Key.D0)
+            {
+                Numbers_Click(Nula, e);
+            }
+            else if (e.Key == Key.NumPad1)
+            {
+                Numbers_Click(Jedan, e);
+            }
+            else if (e.Key == Key.NumPad2)
+            {
+                Numbers_Click(Dva, e);
+            }
+            else if (e.Key == Key.NumPad3)
+            {
+                Numbers_Click(Tri, e);
+            }
+            else if (e.Key == Key.NumPad4)
+            {
+                Numbers_Click(Cetri, e);
+            }
+            else if (e.Key == Key.NumPad5)
+            {
+                Numbers_Click(Pet, e);
+            }
+            else if (e.Key == Key.NumPad6)
+            {
+                Numbers_Click(Sest, e);
+            }
+            else if (e.Key == Key.NumPad7)
+            {
+                Numbers_Click(Sedam, e);
+            }
+            else if (e.Key == Key.NumPad8)
+            {
+                Numbers_Click(Osam, e);
+            }
+            else if (e.Key == Key.NumPad9)
+            {
+                Numbers_Click(Devet, e);
+            }
+            else if (e.Key == Key.NumPad0)
+            {
+                Numbers_Click(Nula, e);
+            }
+             else if (e.Key == Key.Add)
+            {
+                Operacije_Click(Plus, e);
+            }
+            else if (e.Key == Key.Subtract)
+            {
+                Operacije_Click(Minus, e);
+            }
+            else if (e.Key == Key.Multiply)
+            {
+                Operacije_Click(Puta, e);
+            }
+            else if (e.Key == Key.Divide)
+            {
+                Operacije_Click(Podeljeno, e);
+            }
+            else if (e.Key == Key.Decimal)
+            {
+                Tacka_Click(Tacka, e);
+            }
+            else if (e.Key == Key.Enter)
+            {
+                Jednako_Click(Jednako, e);
+            }
+            else if (e.Key == Key.Back)
+            {
+                BackSpace_Click(BackSpace, e);
+            }
+            
+
+
         }
 
 
@@ -473,6 +580,15 @@ namespace Racunar
             Plus.IsEnabled = false;
             Jednako.IsEnabled = false;
             Tacka.IsEnabled = false;
+            C.IsEnabled = false;
+            MStore.IsEnabled = false;
+            MPlus.IsEnabled = false;
+            MNinus.IsEnabled = false;
+            MR.IsEnabled = false;
+            MC.IsEnabled = false;
+            Koren.IsEnabled = false;
+            Kvadrat.IsEnabled = false;
+            BackSpace.IsEnabled = false;
 
         }
 
@@ -486,6 +602,15 @@ namespace Racunar
             Plus.IsEnabled = true;
             Jednako.IsEnabled = true;
             Tacka.IsEnabled = true;
+            C.IsEnabled = true;
+            MStore.IsEnabled = true;
+            MPlus.IsEnabled = true;
+            MNinus.IsEnabled = true;
+            MR.IsEnabled = true;
+            MC.IsEnabled = true;
+            Koren.IsEnabled = true;
+            Kvadrat.IsEnabled = true;
+            BackSpace.IsEnabled = true;
 
         }
 
